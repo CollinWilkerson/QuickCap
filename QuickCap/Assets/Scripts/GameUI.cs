@@ -9,6 +9,7 @@ public class GameUI : MonoBehaviour
     public PlayerUIContainer[] playerContainers;
     public TextMeshProUGUI winText;
 
+
     //instance - one existing version of the class
     public static GameUI instance;
 
@@ -35,8 +36,9 @@ public class GameUI : MonoBehaviour
             if (x < PhotonNetwork.PlayerList.Length)
             {
                 container.obj.SetActive(true); //Makes box visible
-                container.nameText.text = PhotonNetwork.PlayerList[x].NickName; //Updates TMP text
-                container.hatTimeSlider.maxValue = GameManager.instance.timeToWin; //Makes sure the box fills properly
+                container.nameText.text = PhotonNetwork.PlayerList[x].NickName;
+                container.fillText.text = PhotonNetwork.PlayerList[x].NickName;//Updates TMP text
+                //container.hatTimeSlider.maxValue = GameManager.instance.timeToWin; //Makes sure the box fills properly
             }
             else
             {
@@ -62,7 +64,8 @@ public class GameUI : MonoBehaviour
             if (GameManager.instance.players[x] != null)
             {
                 //updates the slider every frame based on the playercontrollers hat time value
-                playerContainers[x].hatTimeSlider.value = GameManager.instance.players[x].curHatTime;
+                //playerContainers[x].hatTimeSlider.value = GameManager.instance.players[x].curHatTime;
+                playerContainers[x].mask.fillAmount = (GameManager.instance.players[x].curHatTime / GameManager.instance.timeToWin); // reveals the colored text based on the ratio of cur time to win time
             }
         }
     }
@@ -79,5 +82,7 @@ public class PlayerUIContainer
 {
     public GameObject obj;
     public TextMeshProUGUI nameText;
-    public Slider hatTimeSlider;
+    public TextMeshProUGUI fillText;
+    //public Slider hatTimeSlider;
+    public Image mask;
 }
