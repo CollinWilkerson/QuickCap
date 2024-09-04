@@ -1,0 +1,23 @@
+--bare minimum--
+*finish UI improvement
+*-UI mask must adjust length to players name
+new stages
+players don't spawn on top of eachother
+players lose hat on fall and respawn
+fix these disgusting controls
+
+--want done--
+new hat
+stage select
+color select
+
+--probably won't happen--
+room size cap
+instatiated player uis for better multiplayer scaling
+hat select
+game modes
+-juggernaut player with the hat can't move but can push players back with a gun
+fix duplicate key error
+
+Yellow: B9A51D
+Dark Blue: 05172E

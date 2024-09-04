@@ -21,6 +21,9 @@ public class Menu : MonoBehaviourPunCallbacks
     public TextMeshProUGUI playerListText;
     public Button startGameButton;
 
+    [Header("Levels")]
+    public string[] levels;
+
     private void Start()
     {
         //disabling buttons
@@ -65,7 +68,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnStartGameButton()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Game");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, levels[0]);
     }
 
     //Photon's way of handeling names

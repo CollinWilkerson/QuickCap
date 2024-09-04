@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     [Header("Players")]
     public string playerPrefabLocation; //path to player prefab
-    public Transform[] spawnPoints; //array of possible spawns could possibly vector3s
+    public Transform[] spawnPoints; //array of possible spawns. could possibly be vector3s
     public PlayerController[] players; //array of players
     public int playerWithHat; //index of the player with hat
     private int playersInGame;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
-        photonView.RPC("ImInGame", RpcTarget.All); //Im guessing this calls ImInGame on all systems
+        photonView.RPC("ImInGame", RpcTarget.All); //calls ImInGame on all systems
     }
 
     [PunRPC]
