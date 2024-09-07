@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int playersInGame;
 
     public static GameManager instance;
+    public GameObject hatStand;
+    private Stack<Vector3> spawns = new Stack<Vector3>();
 
     private void Awake()
     {
@@ -29,6 +31,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        hatStand = GameObject.FindGameObjectWithTag("HatStand");
+        foreach (Transform spawn in spawnPoints)
+        {
+            spawns.Push(spawn.position);
+        }
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.All); //calls ImInGame on all systems
     }
@@ -40,14 +47,26 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (playersInGame == PhotonNetwork.PlayerList.Length) //if we have the same amount of players as the photonNetwork says we should, spawn the players
         {
-            SpawnPlayer();
+            SelectiveSpawnPlayer();
         }
     }
+    //spawns players in unique locations - used for initial spawn
+    void SelectiveSpawnPlayer()
+    {
 
+        //creates a player across the network out of playerPrefabLocation at a random spawnPoints position at the player prefab's rotation
+        GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawns.Pop(), Quaternion.identity);
+
+        PlayerController playerScript = playerObj.GetComponent<PlayerController>();
+
+        playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer); //runs the Initialize function in the player script
+    }
+    //spawns player anywhere - used for respawn
     void SpawnPlayer()
     {
+
         //creates a player across the network out of playerPrefabLocation at a random spawnPoints position at the player prefab's rotation
-        GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0,spawnPoints.Length)].position, Quaternion.identity);
 
         PlayerController playerScript = playerObj.GetComponent<PlayerController>();
 
@@ -66,17 +85,32 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void GiveHat(int playerID, bool initialGive)
+    public void GiveHat(int playerID, bool nonPlayerGive)
     {
+        Debug.Log(playerID);
         //take hat
-        if (!initialGive)
+        if (!nonPlayerGive)
         {
-            GetPlayer(playerWithHat).SetHat(false); //
+            GetPlayer(playerWithHat).SetHat(false);
+        }
+        else
+        {
+            //if the hatstand is touched and then it gives the hat to a player and dies 
+            hatStand.SetActive(false);  
         }
 
+        
         playerWithHat = playerID; //defines which player has the hat
         GetPlayer(playerID).SetHat(true); //activates hat for player who picked it up
         hatPickupTime = Time.time; //sets the time picked up to the current time
+    }
+
+    //resets hat in the instance of an out of bounds
+    [PunRPC]
+    public void ResetHat()
+    {
+        GetPlayer(playerWithHat).SetHat(false);
+        hatStand.SetActive(true);
     }
 
     public bool CanGetHat()

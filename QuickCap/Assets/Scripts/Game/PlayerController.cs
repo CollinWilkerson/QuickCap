@@ -93,10 +93,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         }
 
         //Gives player 1 the hat CHANGE IN PR
+        /*
         if (id==1)
         {
             GameManager.instance.GiveHat(id, true);
         }
+        */
     }
 
     public void SetHat(bool hasHat)
@@ -111,15 +113,21 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")) //if we hit a player
         {
-            if (GameManager.instance.GetPlayer(collision.gameObject).id == GameManager.instance.playerWithHat)
+            if (GameManager.instance.GetPlayer(collision.gameObject).id == GameManager.instance.playerWithHat) //checks if the player has the hat
             {
-                if (GameManager.instance.CanGetHat())
+                if (GameManager.instance.CanGetHat()) //checks if invicibility time is over
                 {
                     GameManager.instance.photonView.RPC("GiveHat", RpcTarget.All, id, false);
                 }
             }
+        }
+
+        if (collision.gameObject.CompareTag("HatStand"))
+        {
+            GameManager.instance.photonView.RPC("GiveHat", RpcTarget.All, id, true);
+            collision.gameObject.SetActive(false);
         }
     }
 
@@ -128,12 +136,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            Debug.Log("Write");
+            //Debug.Log("Write");
             stream.SendNext(curHatTime);
         }
         else //if (stream.IsReading)
         {
-            Debug.Log("Read");
+            //Debug.Log("Read");
             curHatTime = (float)stream.ReceiveNext();
         }
     }

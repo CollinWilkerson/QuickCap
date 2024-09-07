@@ -2,8 +2,11 @@
 *finish UI improvement
 *-UI mask must adjust length to players name
 new stages
-players don't spawn on top of eachother
+*players don't spawn on top of eachother
 players lose hat on fall and respawn
+-create an object that "has" the hat but isn't the player
+-disable the player for some time then re enable?
+-change player position
 fix these disgusting controls
 
 --want done--
