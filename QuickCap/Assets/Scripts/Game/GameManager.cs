@@ -47,10 +47,12 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (playersInGame == PhotonNetwork.PlayerList.Length) //if we have the same amount of players as the photonNetwork says we should, spawn the players
         {
-            SelectiveSpawnPlayer();
+            SpawnPlayer();
         }
     }
     //spawns players in unique locations - used for initial spawn
+    //this only sends one rpc to all clients resulting in them picking the same spawn location
+    /*
     void SelectiveSpawnPlayer()
     {
 
@@ -61,7 +63,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer); //runs the Initialize function in the player script
     }
-    //spawns player anywhere - used for respawn
+    */
+    //spawns player anywhere
     void SpawnPlayer()
     {
 
