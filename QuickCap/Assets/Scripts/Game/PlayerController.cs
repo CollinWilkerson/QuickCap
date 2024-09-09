@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
         //establishes a velocity based on the player inputs
-        rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z);
+        rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z).normalized;
     }
 
     private void TryJump()
