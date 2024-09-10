@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
+using UnityEngine.Animations;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -21,8 +22,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int playersInGame;
 
     public static GameManager instance;
+    public LookAtConstraint lookAtObject;
     public GameObject hatStand;
-    private Stack<Vector3> spawns = new Stack<Vector3>();
+    //private Stack<Vector3> spawns = new Stack<Vector3>();
 
     private void Awake()
     {
@@ -32,12 +34,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         hatStand = GameObject.FindGameObjectWithTag("HatStand");
-        foreach (Transform spawn in spawnPoints)
+        /*
+          foreach (Transform spawn in spawnPoints)
         {
             spawns.Push(spawn.position);
         }
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.All); //calls ImInGame on all systems
+        */
     }
 
     [PunRPC]
@@ -72,6 +76,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0,spawnPoints.Length)].position, Quaternion.identity);
 
         PlayerController playerScript = playerObj.GetComponent<PlayerController>();
+        ConstraintSource source = new ConstraintSource();
+        source.sourceTransform = playerObj.transform;
+        lookAtObject.AddSource(source);
 
         playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer); //runs the Initialize function in the player script
     }
