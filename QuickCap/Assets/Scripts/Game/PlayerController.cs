@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     private void Move()
     {
         //standard controls
-        float x = Input.GetAxis("Horizontal") * moveSpeed;
-        float z = Input.GetAxis("Vertical") * moveSpeed;
+        float x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        float z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
         //establishes a velocity based on the player inputs
         rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z).normalized;
@@ -112,9 +112,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         {
             return;
         }
-
+        //Debug.Log("collision");
         if (collision.gameObject.CompareTag("Player")) //if we hit a player
         {
+            //Debug.Log("hit player");
             if (GameManager.instance.GetPlayer(collision.gameObject).id == GameManager.instance.playerWithHat) //checks if the player has the hat
             {
                 if (GameManager.instance.CanGetHat()) //checks if invicibility time is over

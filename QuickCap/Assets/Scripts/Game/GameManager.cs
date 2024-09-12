@@ -4,7 +4,6 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
-using UnityEngine.Animations;
 using Unity.Cinemachine;
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -45,9 +44,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             spawns.Push(spawn.position);
         }
+        */
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.All); //calls ImInGame on all systems
-        */
+        
     }
 
     [PunRPC]
@@ -77,14 +77,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     //spawns player anywhere
     void SpawnPlayer()
     {
-
+        Debug.Log("spawned player");
         //creates a player across the network out of playerPrefabLocation at a random spawnPoints position at the player prefab's rotation
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0,spawnPoints.Length)].position, Quaternion.identity);
 
         PlayerController playerScript = playerObj.GetComponent<PlayerController>();
 
         //use cinemachine addmember
-        targetGroup.AddMember(playerObj.transform, playerCameraWeight, playerCameraRadius);
+        //targetGroup.AddMember(playerObj.transform, playerCameraWeight, playerCameraRadius);
 
         playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer); //runs the Initialize function in the player script
     }

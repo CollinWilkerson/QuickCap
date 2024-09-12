@@ -146,8 +146,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88605096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16929758, y: -0.00000002937213, z: 0.0000000050454614, w: 0.985565}
-  m_LocalPosition: {x: -1.0289077, y: 5.7265663, z: -11.368359}
+  m_LocalRotation: {x: 0.21045254, y: -0.37262258, z: 0.087172285, w: 0.89959055}
+  m_LocalPosition: {x: 8.971092, y: 9.186566, z: -11.368359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,7 +221,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 3.54, z: -10}
+  FollowOffset: {x: 10, y: 7, z: -10}
 --- !u!114 &88605101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   hatStand: {fileID: 0}
   targetGroup: {fileID: 707195403}
   playerCameraRadius: 5
-  playerCameraWeight: 0
+  playerCameraWeight: 1
 --- !u!4 &969437115
 Transform:
   m_ObjectHideFlags: 0
@@ -2087,8 +2087,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016562708}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16929758, y: -0.00000002937213, z: 0.0000000050454623, w: 0.985565}
-  m_LocalPosition: {x: -1.0289077, y: 5.7265663, z: -11.368359}
+  m_LocalRotation: {x: 0.21045254, y: -0.3726226, z: 0.08717229, w: 0.89959055}
+  m_LocalPosition: {x: 8.971092, y: 9.186566, z: -11.368359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
