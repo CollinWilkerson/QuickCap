@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
 using UnityEngine.Animations;
+using Unity.Cinemachine;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -22,8 +23,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int playersInGame;
 
     public static GameManager instance;
-    public LookAtConstraint lookAtObject;
     public GameObject hatStand;
+
+    [Header("Cinemachine")]
+    public CinemachineTargetGroup targetGroup;
+    public float playerCameraRadius = 5f;
+    public float playerCameraWeight = 1f;
+
     //private Stack<Vector3> spawns = new Stack<Vector3>();
 
     private void Awake()
@@ -76,9 +82,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0,spawnPoints.Length)].position, Quaternion.identity);
 
         PlayerController playerScript = playerObj.GetComponent<PlayerController>();
-        ConstraintSource source = new ConstraintSource();
-        source.sourceTransform = playerObj.transform;
-        lookAtObject.AddSource(source);
+
+        //use cinemachine addmember
+        targetGroup.AddMember(playerObj.transform, playerCameraWeight, playerCameraRadius);
 
         playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer); //runs the Initialize function in the player script
     }
