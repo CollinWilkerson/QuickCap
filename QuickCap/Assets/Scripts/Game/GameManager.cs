@@ -32,10 +32,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         hatStand = GameObject.FindGameObjectWithTag("HatStand");
+        /*
         foreach (Transform spawn in spawnPoints)
         {
             spawns.Push(spawn.position);
         }
+        */
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.All); //calls ImInGame on all systems
     }
