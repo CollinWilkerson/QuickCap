@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         //standard controls
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float z = Input.GetAxis("Vertical") * moveSpeed;
-
         //establishes a velocity based on the player inputs
         rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z);
     }
@@ -92,6 +91,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             rig.isKinematic = true; // game physics should only affect the clients individually
         }
 
+        
         //Gives player 1 the hat CHANGE IN PR
         /*
         if (id==1)

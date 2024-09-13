@@ -23,6 +23,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     [Header("Levels")]
     public string[] levels;
+    private int levelsIndex = 0;
 
     private void Start()
     {
@@ -68,7 +69,47 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnStartGameButton()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, levels[0]);
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, levels[Random.Range(0,3)]);
+    }
+
+    public void onTheCubeSelect()
+    {
+        if(levelsIndex < 4)
+        {
+            //Debug.Log("Added theCube to: " + levelsIndex);
+            levels[levelsIndex] = "TheCube";
+            levelsIndex++;
+        }
+    }
+
+    public void onTheFactorySelect()
+    {
+        if (levelsIndex < 4)
+        {
+            //Debug.Log("Added theFactory to: " + levelsIndex);
+            levels[levelsIndex] = "TheFactory";
+            levelsIndex++;
+        }
+    }
+
+    public void onTheKitchenSelect()
+    {
+        if (levelsIndex < 4)
+        {
+            //Debug.Log("Added theFactory to: " + levelsIndex);
+            levels[levelsIndex] = "TheKitchen";
+            levelsIndex++;
+        }
+    }
+
+    public void onTheWarzoneSelect()
+    {
+        if (levelsIndex < 4)
+        {
+            //Debug.Log("Added theFactory to: " + levelsIndex);
+            levels[levelsIndex] = "TheWarzone";
+            levelsIndex++;
+        }
     }
 
     //Photon's way of handeling names

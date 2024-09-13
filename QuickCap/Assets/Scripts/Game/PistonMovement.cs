@@ -42,7 +42,7 @@ public class PistonMovement : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(7f, 10f));
+            yield return new WaitForSeconds(Random.Range(0, dropTime));
             if (anyTrue(upList))
             {
                 //selects a piston that isnt already moving

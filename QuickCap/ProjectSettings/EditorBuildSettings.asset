@@ -11,5 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheCube.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TheFactory.unity
+    guid: f23ab7f1ac38fbf4688874b4909efdb0
+  - enabled: 1
+    path: Assets/Scenes/TheKitchen.unity
+    guid: 1b27114d1248bfa438001a8c9fc70b78
+  - enabled: 1
+    path: Assets/Scenes/TheWarzone.unity
+    guid: c3f783461b267474c8082e9aeb516c00
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

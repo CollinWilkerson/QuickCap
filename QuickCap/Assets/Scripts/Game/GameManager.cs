@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     //spawns player anywhere
     void SpawnPlayer()
     {
-        Debug.Log("spawned player");
+        //Debug.Log("spawned player");
         //creates a player across the network out of playerPrefabLocation at a random spawnPoints position at the player prefab's rotation
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0,spawnPoints.Length)].position, Quaternion.identity);
 

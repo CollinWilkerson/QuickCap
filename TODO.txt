@@ -26,4 +26,5 @@ game modes
 fix duplicate key error
 
 Yellow: B9A51D
+Light Yellow: D9C855
 Dark Blue: 05172E
