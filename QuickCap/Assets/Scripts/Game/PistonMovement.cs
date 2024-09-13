@@ -1,12 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class PistonMovement : MonoBehaviour
 {
     public float dropTime;
-    //this reall isnt working
-    //option 1 is to manually create each piston and put it in the list
-    //option 2 is to make a list of gameobjects and a list of bools and just give them the same ids for the coroutine
     public GameObject[] pistonList;
     public bool[] upList;
     private Animator anim;
@@ -17,13 +15,6 @@ public class PistonMovement : MonoBehaviour
         if (dropTime <= 0)
             dropTime = 8.0f;
         StartCoroutine(PistonMove());
-    }
-
-    // Update is called once per frame
-    //this cant be a coroutine
-    void Update()
-    {
-        
     }
 
     private bool anyTrue(bool[] list)
