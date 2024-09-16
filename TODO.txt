@@ -4,7 +4,7 @@
 --bare minimum--
 *finish UI improvement
 *-UI mask must adjust length to players name
-new stages
+*new stages
 *players don't spawn on top of eachother
 *players lose hat on fall and respawn
 *-create an object that "has" the hat but isn't the player
@@ -14,7 +14,7 @@ fix these disgusting controls
 
 --want done--
 new hat
-stage select
+*stage select
 color select
 
 --probably won't happen--
@@ -27,4 +27,5 @@ fix duplicate key error
 
 Yellow: B9A51D
 Light Yellow: D9C855
-Dark Blue: 05172E
+Blue: 05172E
+Dark Blue: 7C94BE
