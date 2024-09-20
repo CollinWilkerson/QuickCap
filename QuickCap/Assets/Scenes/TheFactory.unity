@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 338881618}
   - component: {fileID: 338881621}
   - component: {fileID: 338881620}
+  - component: {fileID: 338881622}
   m_Layer: 0
   m_Name: PlatformW
   m_TagString: Untagged
@@ -317,6 +318,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 338881621}
+  - {fileID: 338881622}
   sceneViewId: 14
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -336,6 +338,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &338881622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338881615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Up
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &353567896
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +387,7 @@ Transform:
   m_GameObject: {fileID: 353567896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.71, z: 0}
+  m_LocalPosition: {x: 0, y: 1.33, z: 0}
   m_LocalScale: {x: 45.114002, y: 7.519, z: 45.114002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2358,6 +2381,7 @@ GameObject:
   - component: {fileID: 1066954410}
   - component: {fileID: 1066954413}
   - component: {fileID: 1066954412}
+  - component: {fileID: 1066954414}
   m_Layer: 0
   m_Name: PlatformE
   m_TagString: Untagged
@@ -2445,6 +2469,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1066954413}
+  - {fileID: 1066954414}
   sceneViewId: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2464,6 +2489,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1066954414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066954407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Up
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &1100587595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3109,7 @@ GameObject:
   - component: {fileID: 1480202309}
   - component: {fileID: 1480202312}
   - component: {fileID: 1480202311}
+  - component: {fileID: 1480202313}
   m_Layer: 0
   m_Name: PlatformS
   m_TagString: Untagged
@@ -3150,6 +3197,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1480202312}
+  - {fileID: 1480202313}
   sceneViewId: 15
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -3169,6 +3217,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1480202313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480202306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Up
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!4 &1502964795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f1d181dd75d289e4fba734803fcc0cac, type: 3}
@@ -4425,6 +4494,7 @@ GameObject:
   - component: {fileID: 2091876726}
   - component: {fileID: 2091876728}
   - component: {fileID: 2091876727}
+  - component: {fileID: 2091876729}
   m_Layer: 0
   m_Name: PlatformN
   m_TagString: Untagged
@@ -4512,6 +4582,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2091876728}
+  - {fileID: 2091876729}
   sceneViewId: 12
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -4531,6 +4602,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &2091876729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091876723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Up
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &2121157802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4866248765612926826, guid: 70d9df142f0910c4088779730394b278, type: 3}

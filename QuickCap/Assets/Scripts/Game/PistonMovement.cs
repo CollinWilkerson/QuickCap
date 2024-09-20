@@ -1,8 +1,9 @@
 using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 
-public class PistonMovement : MonoBehaviour
+public class PistonMovement : MonoBehaviourPun
 {
     public float dropTime;
     public GameObject[] pistonList;
@@ -31,7 +32,7 @@ public class PistonMovement : MonoBehaviour
 
     IEnumerator PistonMove()
     {
-        while (true)
+        while (PhotonNetwork.IsMasterClient)
         {
             yield return new WaitForSeconds(Random.Range(0, dropTime));
             if (anyTrue(upList))

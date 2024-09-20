@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exp: {fileID: 100012, guid: 3364c97de68d3a147af572d1c71c6455, type: 3}
-  expForce: 500
-  radius: 8
+  expForce: 1000
+  radius: 16
 --- !u!114 &-382168821505495182
 MonoBehaviour:
   m_ObjectHideFlags: 0

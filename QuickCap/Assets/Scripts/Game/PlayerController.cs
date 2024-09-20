@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
     [Header("Info")]
     public float moveSpeed;
+    public float maxSpeed;
     public float jumpForce;
     public GameObject hatObject;
 
@@ -25,8 +26,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
-            //standard jump and move controls
-            Move();
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -54,13 +53,32 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (photonView.IsMine)
+        {
+            //standard jump and move controls
+            Move();
+        }
+    }
+
     private void Move()
     {
         //standard controls
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float z = Input.GetAxis("Vertical") * moveSpeed;
         //establishes a velocity based on the player inputs
-        rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z);
+        //rig.linearVelocity = new Vector3(x, rig.linearVelocity.y, z);
+        if (Mathf.Sqrt(Mathf.Pow(rig.linearVelocity.x, 2) + Mathf.Pow(rig.linearVelocity.z, 2)) > maxSpeed)
+        {
+            Vector3 moveVector = new Vector3(x, 0, z).normalized * maxSpeed;
+            moveVector.y = rig.linearVelocity.y;
+            rig.linearVelocity = moveVector;
+        }
+        else
+        {
+            rig.AddForce(new Vector3(x, 0, z), ForceMode.VelocityChange);
+        }
     }
 
     private void TryJump()

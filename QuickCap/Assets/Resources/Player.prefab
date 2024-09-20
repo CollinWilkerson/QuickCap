@@ -365,7 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  moveSpeed: 7
+  moveSpeed: 3
+  maxSpeed: 7
   jumpForce: 5
   hatObject: {fileID: 8552916195576318115}
   rig: {fileID: 8829281130661970701}
